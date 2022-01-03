@@ -1,0 +1,10 @@
+// Add your dependencies here
+
+dependencies {
+    compileOnly("com.github.GTNewHorizons:NotEnoughItems:master-SNAPSHOT:dev") {
+        transitive = false
+    }
+    compileOnly("com.github.GTNewHorizons:CodeChickenCore:master-SNAPSHOT:dev") {
+        transitive = false
+    }
+}
