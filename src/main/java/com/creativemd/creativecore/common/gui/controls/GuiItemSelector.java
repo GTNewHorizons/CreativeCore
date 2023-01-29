@@ -2,17 +2,15 @@ package com.creativemd.creativecore.common.gui.controls;
 
 import net.minecraft.client.gui.FontRenderer;
 
-import com.creativemd.creativecore.common.gui.controls.GuiControl;
+public class GuiItemSelector extends GuiControl {
 
-public class GuiItemSelector extends GuiControl{
+    public GuiItemSelector(String name, int x, int y, int width, int height) {
+        super(name, x, y, width, height);
+    }
 
-	public GuiItemSelector(String name, int x, int y, int width, int height) {
-		super(name, x, y, width, height);
-	}
+    @Override
+    public void drawControl(FontRenderer renderer) {
 
-	@Override
-	public void drawControl(FontRenderer renderer) {
-		
-	}
+    }
 
 }

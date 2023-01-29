@@ -4,12 +4,16 @@ import java.awt.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.creativemd.creativecore.common.recipe.IRecipeInfo;
-import com.creativemd.creativecore.common.utils.stack.StackInfo;
+import net.minecraft.client.gui.inventory.GuiContainer;
+import net.minecraft.client.gui.inventory.GuiCrafting;
+import net.minecraft.inventory.Container;
+import net.minecraft.item.ItemStack;
+import net.minecraft.item.crafting.CraftingManager;
+import net.minecraft.item.crafting.IRecipe;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 
 import codechicken.core.ReflectionManager;
 import codechicken.nei.NEIClientConfig;
-import codechicken.nei.NEIClientUtils;
 import codechicken.nei.NEIServerUtils;
 import codechicken.nei.PositionedStack;
 import codechicken.nei.api.API;
@@ -18,37 +22,29 @@ import codechicken.nei.api.IOverlayHandler;
 import codechicken.nei.api.IRecipeOverlayRenderer;
 import codechicken.nei.api.IStackPositioner;
 import codechicken.nei.recipe.RecipeInfo;
-import codechicken.nei.recipe.ShapedRecipeHandler;
 import codechicken.nei.recipe.TemplateRecipeHandler;
-import codechicken.nei.recipe.ShapedRecipeHandler.CachedShapedRecipe;
 import codechicken.nei.recipe.TemplateRecipeHandler.CachedRecipe;
 import codechicken.nei.recipe.TemplateRecipeHandler.RecipeTransferRect;
+
+import com.creativemd.creativecore.common.recipe.IRecipeInfo;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
-import net.minecraft.client.gui.inventory.GuiContainer;
-import net.minecraft.client.gui.inventory.GuiCrafting;
-import net.minecraft.inventory.Container;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.crafting.CraftingManager;
-import net.minecraft.item.crafting.IRecipe;
-import net.minecraft.item.crafting.ShapedRecipes;
-import net.minecraftforge.oredict.ShapedOreRecipe;
 
-public class NEIRecipeInfoHandler extends TemplateRecipeHandler{
+public class NEIRecipeInfoHandler extends TemplateRecipeHandler {
 
-	public static void load()
-	{
-		API.registerRecipeHandler(new NEIRecipeInfoHandler());
-		API.registerUsageHandler(new NEIRecipeInfoHandler());
-	}
-	
-	@Override
-	public String getRecipeName() {
-		return "IRecipeInfo";
-	}
+    public static void load() {
+        API.registerRecipeHandler(new NEIRecipeInfoHandler());
+        API.registerUsageHandler(new NEIRecipeInfoHandler());
+    }
 
-	public class CachedInfoShapedRecipe extends CachedRecipe
-    {
+    @Override
+    public String getRecipeName() {
+        return "IRecipeInfo";
+    }
+
+    public class CachedInfoShapedRecipe extends CachedRecipe {
+
         public ArrayList<PositionedStack> ingredients;
         public PositionedStack result;
 
@@ -59,7 +55,11 @@ public class NEIRecipeInfoHandler extends TemplateRecipeHandler{
         }
 
         public CachedInfoShapedRecipe(IRecipeInfo recipe) {
-            this(recipe.getWidth(), ((IRecipe) recipe).getRecipeSize()/recipe.getWidth(), recipe.getInput(), ((IRecipe) recipe).getRecipeOutput());
+            this(
+                    recipe.getWidth(),
+                    ((IRecipe) recipe).getRecipeSize() / recipe.getWidth(),
+                    recipe.getInput(),
+                    ((IRecipe) recipe).getRecipeOutput());
         }
 
         /**
@@ -70,8 +70,7 @@ public class NEIRecipeInfoHandler extends TemplateRecipeHandler{
         public void setIngredients(int width, int height, Object[] items) {
             for (int x = 0; x < width; x++) {
                 for (int y = 0; y < height; y++) {
-                    if (items[y * width + x] == null)
-                        continue;
+                    if (items[y * width + x] == null) continue;
 
                     PositionedStack stack = new PositionedStack(items[y * width + x], 25 + x * 18, 6 + y * 18, false);
                     stack.setMaxSize(1);
@@ -90,8 +89,7 @@ public class NEIRecipeInfoHandler extends TemplateRecipeHandler{
         }
 
         public void computeVisuals() {
-            for (PositionedStack p : ingredients)
-                p.generatePermutations();
+            for (PositionedStack p : ingredients) p.generatePermutations();
         }
     }
 
@@ -111,11 +109,9 @@ public class NEIRecipeInfoHandler extends TemplateRecipeHandler{
         if (outputId.equals("crafting") && getClass() == NEIRecipeInfoHandler.class) {
             for (IRecipe irecipe : (List<IRecipe>) CraftingManager.getInstance().getRecipeList()) {
                 CachedInfoShapedRecipe recipe = null;
-                if (irecipe instanceof IRecipeInfo)
-                    recipe = new CachedInfoShapedRecipe((IRecipeInfo) irecipe);
+                if (irecipe instanceof IRecipeInfo) recipe = new CachedInfoShapedRecipe((IRecipeInfo) irecipe);
 
-                if (recipe == null)
-                    continue;
+                if (recipe == null) continue;
 
                 recipe.computeVisuals();
                 arecipes.add(recipe);
@@ -129,12 +125,10 @@ public class NEIRecipeInfoHandler extends TemplateRecipeHandler{
     public void loadCraftingRecipes(ItemStack result) {
         for (IRecipe irecipe : (List<IRecipe>) CraftingManager.getInstance().getRecipeList()) {
             if (NEIServerUtils.areStacksSameTypeCrafting(irecipe.getRecipeOutput(), result)) {
-            	CachedInfoShapedRecipe recipe = null;
-                if (irecipe instanceof IRecipeInfo)
-                    recipe = new CachedInfoShapedRecipe((IRecipeInfo) irecipe);
+                CachedInfoShapedRecipe recipe = null;
+                if (irecipe instanceof IRecipeInfo) recipe = new CachedInfoShapedRecipe((IRecipeInfo) irecipe);
 
-                if (recipe == null)
-                    continue;
+                if (recipe == null) continue;
 
                 recipe.computeVisuals();
                 arecipes.add(recipe);
@@ -145,12 +139,10 @@ public class NEIRecipeInfoHandler extends TemplateRecipeHandler{
     @Override
     public void loadUsageRecipes(ItemStack ingredient) {
         for (IRecipe irecipe : (List<IRecipe>) CraftingManager.getInstance().getRecipeList()) {
-        	CachedInfoShapedRecipe recipe = null;
-            if (irecipe instanceof IRecipeInfo)
-                recipe = new CachedInfoShapedRecipe((IRecipeInfo) irecipe);
+            CachedInfoShapedRecipe recipe = null;
+            if (irecipe instanceof IRecipeInfo) recipe = new CachedInfoShapedRecipe((IRecipeInfo) irecipe);
 
-            if (recipe == null || !recipe.contains(recipe.ingredients, ingredient.getItem()))
-                continue;
+            if (recipe == null || !recipe.contains(recipe.ingredients, ingredient.getItem())) continue;
 
             recipe.computeVisuals();
             if (recipe.contains(recipe.ingredients, ingredient)) {
@@ -172,9 +164,8 @@ public class NEIRecipeInfoHandler extends TemplateRecipeHandler{
         }
 
         Object[] items = recipe.getInput();
-        for (Object item : items)
-            if (item instanceof List && ((List<?>) item).isEmpty())//ore handler, no ores
-                return null;
+        for (Object item : items) if (item instanceof List && ((List<?>) item).isEmpty())// ore handler, no ores
+            return null;
 
         return new CachedInfoShapedRecipe(width, height, items, recipe.getRecipeOutput());
     }
@@ -191,35 +182,30 @@ public class NEIRecipeInfoHandler extends TemplateRecipeHandler{
     }
 
     public boolean hasOverlay(GuiContainer gui, Container container, int recipe) {
-        return super.hasOverlay(gui, container, recipe) ||
-                isRecipe2x2(recipe) && RecipeInfo.hasDefaultOverlay(gui, "crafting2x2");
+        return super.hasOverlay(gui, container, recipe)
+                || isRecipe2x2(recipe) && RecipeInfo.hasDefaultOverlay(gui, "crafting2x2");
     }
 
     @Override
     public IRecipeOverlayRenderer getOverlayRenderer(GuiContainer gui, int recipe) {
         IRecipeOverlayRenderer renderer = super.getOverlayRenderer(gui, recipe);
-        if (renderer != null)
-            return renderer;
+        if (renderer != null) return renderer;
 
         IStackPositioner positioner = RecipeInfo.getStackPositioner(gui, "crafting2x2");
-        if (positioner == null)
-            return null;
+        if (positioner == null) return null;
         return new DefaultOverlayRenderer(getIngredientStacks(recipe), positioner);
     }
 
     @Override
     public IOverlayHandler getOverlayHandler(GuiContainer gui, int recipe) {
         IOverlayHandler handler = super.getOverlayHandler(gui, recipe);
-        if (handler != null)
-            return handler;
+        if (handler != null) return handler;
 
         return RecipeInfo.getOverlayHandler(gui, "crafting2x2");
     }
 
     public boolean isRecipe2x2(int recipe) {
-        for (PositionedStack stack : getIngredientStacks(recipe))
-            if (stack.relx > 43 || stack.rely > 24)
-                return false;
+        for (PositionedStack stack : getIngredientStacks(recipe)) if (stack.relx > 43 || stack.rely > 24) return false;
 
         return true;
     }
