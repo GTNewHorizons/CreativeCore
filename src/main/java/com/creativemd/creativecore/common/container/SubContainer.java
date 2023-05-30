@@ -9,6 +9,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
 import com.creativemd.creativecore.common.container.slot.ContainerControl;
+import com.creativemd.creativecore.common.container.slot.SlotBlockedInv;
 import com.creativemd.creativecore.common.container.slot.SlotControl;
 import com.creativemd.creativecore.common.event.CreativeCoreEventBus;
 import com.creativemd.creativecore.common.gui.event.container.ContainerControlEvent;
@@ -26,11 +27,20 @@ public abstract class SubContainer {
     public EntityPlayer player;
 
     public ContainerSub container;
+    final boolean blockHeldSlot;
 
     private CreativeCoreEventBus eventBus;
 
     public SubContainer(EntityPlayer player) {
+        this(player, false);
+    }
+
+    /**
+     * @param blockHeldSlot Whether to disable slot for currently held item
+     */
+    public SubContainer(EntityPlayer player, boolean blockHeldSlot) {
         this.player = player;
+        this.blockHeldSlot = blockHeldSlot;
         this.tick = 0;
         eventBus = new CreativeCoreEventBus();
         eventBus.RegisterEventListener(this);
@@ -196,7 +206,12 @@ public abstract class SubContainer {
         }
 
         for (l = 0; l < 9; ++l) {
-            addSlotToContainer(new Slot(player.inventory, l, l * 18 + x, 58 + y));
+            // Lock the slot in which the player is currently holding the item.
+            if (blockHeldSlot && l == player.inventory.currentItem) {
+                addSlotToContainer(new SlotBlockedInv(player.inventory, l, l * 18 + x, 58 + y));
+            } else {
+                addSlotToContainer(new Slot(player.inventory, l, l * 18 + x, 58 + y));
+            }
         }
     }
 }

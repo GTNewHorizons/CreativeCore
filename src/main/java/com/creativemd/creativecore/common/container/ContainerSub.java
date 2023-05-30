@@ -9,6 +9,7 @@ import net.minecraft.inventory.Slot;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChunkCoordinates;
 
+import com.creativemd.creativecore.common.container.slot.SlotBlockedInv;
 import com.creativemd.creativecore.common.container.slot.SlotImage;
 import com.creativemd.creativecore.common.gui.GuiContainerSub;
 import com.creativemd.creativecore.common.gui.GuiHandler;
@@ -22,6 +23,7 @@ public class ContainerSub extends Container {
 
     @SideOnly(Side.CLIENT)
     public GuiContainerSub gui;
+    final boolean blockHeldSlot;
 
     public ChunkCoordinates coord = null;
 
@@ -30,6 +32,7 @@ public class ContainerSub extends Container {
 
         subContainer.container = this;
         subContainer.initContainer();
+        this.blockHeldSlot = subContainer.blockHeldSlot;
 
         layers.add(subContainer);
         subContainer.onGuiOpened();
@@ -176,5 +179,25 @@ public class ContainerSub extends Container {
         }
 
         return flag1;
+    }
+
+    @Override
+    public ItemStack slotClick(int slotId, int clickedButton, int mode, EntityPlayer player) {
+        if (!blockHeldSlot) return super.slotClick(slotId, clickedButton, mode, player);
+
+        if (slotId >= 0 && this.getSlot(slotId) != null && (this.getSlot(slotId).getStack() == player.getHeldItem())) {
+            return null;
+        }
+
+        // keybind for moving from hotbar slot to hovered slot
+        if (mode == 2 && clickedButton >= 0 && clickedButton < 9) {
+            int hotbarIndex = 1 + (9 * 3) + clickedButton;
+            Slot hotbarSlot = getSlot(hotbarIndex);
+            if (hotbarSlot instanceof SlotBlockedInv) {
+                return null;
+            }
+        }
+
+        return super.slotClick(slotId, clickedButton, mode, player);
     }
 }
