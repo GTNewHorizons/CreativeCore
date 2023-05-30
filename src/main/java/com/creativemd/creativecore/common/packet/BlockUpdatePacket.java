@@ -5,6 +5,7 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
 
 import com.creativemd.creativecore.common.tileentity.TileEntityCreative;
+
 import io.netty.buffer.ByteBuf;
 
 public class BlockUpdatePacket extends CreativeCorePacket {

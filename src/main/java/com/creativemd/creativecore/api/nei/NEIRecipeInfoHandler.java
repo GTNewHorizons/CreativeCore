@@ -12,6 +12,8 @@ import net.minecraft.item.crafting.CraftingManager;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 
+import com.creativemd.creativecore.common.recipe.IRecipeInfo;
+
 import codechicken.core.ReflectionManager;
 import codechicken.nei.NEIClientConfig;
 import codechicken.nei.NEIServerUtils;
@@ -25,9 +27,6 @@ import codechicken.nei.recipe.RecipeInfo;
 import codechicken.nei.recipe.TemplateRecipeHandler;
 import codechicken.nei.recipe.TemplateRecipeHandler.CachedRecipe;
 import codechicken.nei.recipe.TemplateRecipeHandler.RecipeTransferRect;
-
-import com.creativemd.creativecore.common.recipe.IRecipeInfo;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 

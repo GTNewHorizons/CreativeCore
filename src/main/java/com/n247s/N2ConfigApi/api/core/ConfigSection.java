@@ -6,13 +6,12 @@ import java.util.List;
 
 import org.apache.logging.log4j.Logger;
 
-import scala.actors.threadpool.Arrays;
-
 import com.n247s.N2ConfigApi.api.N2ConfigApi;
 import com.n247s.N2ConfigApi.api.core.InitConfigObjectManager.Config;
 
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
+import scala.actors.threadpool.Arrays;
 
 /**
  * @author N247S An ingame ConfigFile Manager
