@@ -4,9 +4,9 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
 
-import scala.actors.threadpool.Arrays;
-
 import com.n247s.N2ConfigApi.api.core.ConfigHandler.ProxySide;
+
+import scala.actors.threadpool.Arrays;
 
 /**
  * @author N247S An ingame ConfigFile Manager

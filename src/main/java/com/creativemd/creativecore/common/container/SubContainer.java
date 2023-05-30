@@ -17,6 +17,7 @@ import com.creativemd.creativecore.common.gui.premade.SubContainerDialog;
 import com.creativemd.creativecore.common.packet.GuiLayerPacket;
 import com.creativemd.creativecore.common.packet.GuiUpdatePacket;
 import com.creativemd.creativecore.common.packet.PacketHandler;
+
 import cpw.mods.fml.common.FMLCommonHandler;
 
 public abstract class SubContainer {
