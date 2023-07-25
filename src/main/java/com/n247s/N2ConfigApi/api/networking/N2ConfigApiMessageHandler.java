@@ -2,8 +2,10 @@ package com.n247s.N2ConfigApi.api.networking;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.ObjectStreamClass;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -16,6 +18,8 @@ import net.minecraft.server.MinecraftServer;
 import net.minecraftforge.common.MinecraftForge;
 
 import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.Marker;
+import org.apache.logging.log4j.MarkerManager;
 
 import com.n247s.N2ConfigApi.api.N2ConfigApi;
 import com.n247s.N2ConfigApi.api.core.ConfigFile;
@@ -48,6 +52,7 @@ public class N2ConfigApiMessageHandler {
 
     private static final N2ConfigApiMessageHandler instance = new N2ConfigApiMessageHandler();// TODO remove?
     private static final Logger log = N2ConfigApi.log;
+    public static final Marker securityMarker = MarkerManager.getMarker("SuspiciousPackets");
     public static final int maxByteBuffSize = 25 * 1024;
     private static HashMap<String, List<Byte>> ConfigFileClassMap = new HashMap<String, List<Byte>>();
     private static HashMap<String, List<Byte>> ConfigFileMap = new HashMap<String, List<Byte>>();
@@ -311,8 +316,7 @@ public class N2ConfigApiMessageHandler {
 
     }
 
-    private static void updateFullConfig(ByteBufInputStream stream, EntityPlayerMP player)
-            throws IOException, ClassNotFoundException {
+    private static void updateFullConfig(ByteBufInputStream stream, EntityPlayerMP player) {
         String ID = null;
         try {
             String currentString = stream.readUTF();
@@ -361,10 +365,10 @@ public class N2ConfigApiMessageHandler {
                 for (Byte b : byteList) byteArray[i++] = b;
 
                 buff.setBytes(0, byteArray);
-                ObjectInputStream objectStream = new ObjectInputStream(new ByteBufInputStream(buff));
+                ObjectInputStream objectStream = new ConfigObjectInputStream(new ByteBufInputStream(buff), player);
 
                 Object obj = objectStream.readObject();
-                ConfigFile cfg = null;
+                ConfigFile cfg;
                 if (!(obj instanceof ConfigFile)) {
                     log.catching(new Exception("Sended Object wasn't a ConfigFile!"));
                     objectStream.close();
@@ -518,5 +522,27 @@ public class N2ConfigApiMessageHandler {
                 || MinecraftServer.getServer().getConfigurationManager().getServerInstance().getServerOwner()
                         .equalsIgnoreCase(player.getGameProfile().toString()))
                 || Minecraft.getMinecraft().isSingleplayer();
+    }
+
+    private static class ConfigObjectInputStream extends ObjectInputStream {
+
+        private final EntityPlayerMP player;
+
+        public ConfigObjectInputStream(InputStream in, EntityPlayerMP player) throws IOException {
+            super(in);
+            this.player = player;
+        }
+
+        @Override
+        protected Class<?> resolveClass(ObjectStreamClass desc) throws IOException, ClassNotFoundException {
+            if (!desc.getName().equals("com.n247s.N2ConfigApi.api.core.DefaultConfigFile")) {
+                log.warn(
+                        securityMarker,
+                        "Player {} tried to send packet that pretend to be config file but actually not",
+                        player.getGameProfile());
+                throw new RuntimeException();
+            }
+            return super.resolveClass(desc);
+        }
     }
 }
