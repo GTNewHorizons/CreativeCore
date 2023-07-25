@@ -535,10 +535,11 @@ public class N2ConfigApiMessageHandler {
 
         @Override
         protected Class<?> resolveClass(ObjectStreamClass desc) throws IOException, ClassNotFoundException {
-            if (!desc.getName().equals("com.n247s.N2ConfigApi.api.core.DefaultConfigFile")) {
+            String name = desc.getName();
+            if (!name.equals("com.n247s.N2ConfigApi.api.core.DefaultConfigFile")) {
                 log.warn(
                         securityMarker,
-                        "Player {} tried to send packet that pretend to be config file but actually not",
+                        "Player {} tried to send packet that pretend to be config file, but actually: " + name,
                         player.getGameProfile());
                 throw new RuntimeException();
             }
