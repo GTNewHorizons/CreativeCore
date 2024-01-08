@@ -26,7 +26,7 @@ public class ConfigParser {
      * Parses a {@link Configuration} to a {@link ConfigFile}.<br>
      * This will return a {@link DefaultConfigFile} which {@link File} location is pointed at the default
      * ConfigDirectory from Minecraft, with the given filename.
-     * 
+     *
      * @param configuration The {@link Configuration} that should be parsed.
      * @param newFileName   The name of the (.cfg) file.
      * @return A new {@link DefaultConfigFile}.
@@ -52,7 +52,7 @@ public class ConfigParser {
      * This will return The given {@link ConfigFile} with the content of the {@link Configuration} added to it. This way
      * its possible to parse multiple {@link Configuration} into one {@link ConfigFile}. Also this gives you the
      * opportunity to set settings yourself (such as {@link File} location etc.).
-     * 
+     *
      * @param configuration The {@link Configuration} that should be parsed.
      * @param configFile    The {@link ConfigFile} where the content {@link Configuration} should be added to.
      * @return The given {@link ConfigFile} with the content of {@link Configuration} added to it.
@@ -140,7 +140,7 @@ public class ConfigParser {
 
     /**
      * Parses a {@link ConfigCategory} to a {@link ConfigSectionCollection}
-     * 
+     *
      * @param configCategory
      * @param setExtraSpace
      * @param useDefaultValueForConfigValue Weather the value or the DefaultValue of the {@link Property Properties}
@@ -155,7 +155,7 @@ public class ConfigParser {
 
     /**
      * Parses a {@link ConfigCategory} to a {@link ConfigSectionCollection}
-     * 
+     *
      * @param configCategory
      * @param useDefaultValueForConfigValue Weather the value or the DefaultValue of the {@link Property Properties}
      *                                      should be assigned to the defaultValue of the {@link ConfigSection
@@ -170,7 +170,7 @@ public class ConfigParser {
     /**
      * Parese a {@link ConfigCategory} with the {@link Type} {@link Type#BOOLEAN BOOLEAN} to a {@link ConfigSection}
      * with {@link SectionType} {@link SectionType#Boolean Boolean} or {@link SectionType#BooleanArray BooleanArray}
-     * 
+     *
      * @param booleanProperty
      * @return
      */
@@ -208,7 +208,7 @@ public class ConfigParser {
     /**
      * Parese a {@link ConfigCategory} with the {@link Type} {@link Type#INTEGER INTEGER} to a {@link ConfigSection}
      * with {@link SectionType} {@link SectionType#Integer Integer} or {@link SectionType#IntegerArray IntegerArray}
-     * 
+     *
      * @param integerProperty
      * @param useDefaultValueForConfigValue Weather the value or the DefaultValue of the {@link Property Properties}
      *                                      should be assigned to the defaultValue of the {@link ConfigSection
@@ -249,7 +249,7 @@ public class ConfigParser {
     /**
      * Parese a {@link ConfigCategory} with the {@link Type} {@link Type#DOUBLE DOUBLE} to a {@link ConfigSection} with
      * {@link SectionType} {@link SectionType#Double Double} or {@link SectionType#DoubleArray DoubleArray}
-     * 
+     *
      * @param doubleProperty
      * @param useDefaultValueForConfigValue Weather the value or the DefaultValue of the {@link Property Properties}
      *                                      should be assigned to the defaultValue of the {@link ConfigSection
@@ -290,7 +290,7 @@ public class ConfigParser {
     /**
      * Parese a {@link ConfigCategory} with the {@link Type} {@link Type#STRING STRING} to a {@link ConfigSection} with
      * {@link SectionType} {@link SectionType#String String} or {@link SectionType#StringArray StringArray}
-     * 
+     *
      * @param stringProperty
      * @param useDefaultValueForConfigValue Weather the value or the DefaultValue of the {@link Property Properties}
      *                                      should be assigned to the defaultValue of the {@link ConfigSection
@@ -343,7 +343,7 @@ public class ConfigParser {
 
     /**
      * @deprecated - seems to be unused!
-     * 
+     *
      * @return {@code null}
      */
     public static ConfigSection parseColourProperty() {
@@ -352,7 +352,7 @@ public class ConfigParser {
 
     /**
      * @deprecated - seems to be unused!
-     * 
+     *
      * @return {@code null}
      */
     public static ConfigSection parseModIDProperty() {

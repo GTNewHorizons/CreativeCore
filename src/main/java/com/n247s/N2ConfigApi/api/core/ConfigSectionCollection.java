@@ -49,7 +49,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This will create an new ConfigSectionCollection, and add it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName    - The ID of this Section
      * @param description
      * @param setExtraSpaces - Whether there will be extra spaces printed between subSections or not.
@@ -69,7 +69,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This will create an new ShortSection, and add it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName  - The ID of this Section
      * @param description
      * @param defaultValue
@@ -90,7 +90,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This will create an new ShortArraySection, and add it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName   - The ID of this Section
      * @param description
      * @param defaultValue
@@ -113,7 +113,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an IntegerSection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName  - The ID of this Section
      * @param description
      * @param defaultValue
@@ -134,7 +134,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an IntegerArraySection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName   - The ID of this Section
      * @param description
      * @param defaultValue
@@ -156,7 +156,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an LongSection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName  - The ID of this Section
      * @param description
      * @param defaultValue
@@ -177,7 +177,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an LongArraySection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName   - The ID of this Section
      * @param description
      * @param defaultValue
@@ -199,7 +199,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an FloatSection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName  - The ID of this Section
      * @param description
      * @param defaultValue
@@ -220,7 +220,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an FloatArraySection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName   - The ID of this Section
      * @param description
      * @param defaultValue
@@ -242,7 +242,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an DoubleSection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName  - The ID of this Section
      * @param description
      * @param defaultValue
@@ -263,7 +263,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an DoubleArraySection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName   - The ID of this Section
      * @param description
      * @param defaultValue
@@ -285,7 +285,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an BooleanSection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName  - The ID of this Section
      * @param description
      * @param defaultValue
@@ -306,7 +306,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an BooleanArraySection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName   - The ID of this Section
      * @param description
      * @param defaultValue
@@ -328,7 +328,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an StringSection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName  - The ID of this Section
      * @param description
      * @param defaultValue
@@ -349,7 +349,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an StringArraySection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName   - The ID of this Section
      * @param description
      * @param defaultValue
@@ -371,7 +371,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This method will create an StringSection, and ad it to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName - The ID of this Section
      * @param description - If description is null, a newLine (return) will be written instead of a Text Section
      * @return
@@ -384,7 +384,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This will add the ConfigSection to this ConfigSectionCollection.
-     * 
+     *
      * @param sectionName
      * @param configSection
      */
@@ -405,7 +405,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This will insert an section into this ConfigSectionCollection.
-     * 
+     *
      * @param insertConfigSection - The configSection you want to insert.
      * @param configSectionTarget - The ConfigSection which the new ConfigSection should be inserted before!
      * @return True if the insertion was successful, false otherwise.
@@ -421,7 +421,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This will insert an section into this ConfigSectionCollection.
-     * 
+     *
      * @param insertConfigSection - The configSection you want to insert.
      * @param configSectionTarget - The ConfigSection which the new ConfigSection should be inserted before!
      * @return True if the insertion was successful, false otherwise.
@@ -619,7 +619,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
     }
 
     /**
-     * 
+     *
      * @param ConfigSectionName
      * @return The index of this ConfigSectionCollection, or -1 if it can't be found. (including 'nested'
      *         ConfigSections)
@@ -686,7 +686,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
 
     /**
      * This will regenerate this ConfigSectionChapter.
-     * 
+     *
      * @param writer
      * @param reader
      * @param invalidSections - Note, SectionType Text will always be reWritten.
@@ -1103,7 +1103,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
     /**
      * This will save the Value's inside a ConfigInitObject. This is also called with the saveConfigValues() method from
      * the ConfigFile.Class.
-     * 
+     *
      * @param fileName
      */
     protected final boolean readAndSaveValues(String fileName) throws IOException {
@@ -1145,7 +1145,7 @@ public class ConfigSectionCollection extends ConfigSection implements Serializab
     /**
      * Note, it isn't recommended to Call this if you access this method through the ConfigFile.Class! Use
      * "getValue(String)" instead.
-     * 
+     *
      * @param sectionName
      * @param reader
      * @return - The value from the ConfigFile, or the Default Value if an error occurred.

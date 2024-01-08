@@ -33,7 +33,7 @@ public abstract class CallHandler {
     /**
      * This method is used to add an instance of a Class which should be called on eventRaise. Its called from
      * {@link EventBus#RegisterEventClassInstance(Object)}.
-     * 
+     *
      * @param priority
      * @param classInstance
      * @param method
@@ -46,7 +46,7 @@ public abstract class CallHandler {
     /**
      * This method is used to remove an EventListner (Class object / Class instance). Its called from
      * {@link EventBus#removeEventListener(Object)}.
-     * 
+     *
      * @param Listener
      */
     public void removeListener(CustomEventSubscribe.Priority priority, Object Listener) {

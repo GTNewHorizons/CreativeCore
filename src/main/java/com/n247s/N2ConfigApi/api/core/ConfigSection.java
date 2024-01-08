@@ -2,6 +2,7 @@ package com.n247s.N2ConfigApi.api.core;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.List;
 
 import org.apache.logging.log4j.Logger;
@@ -11,7 +12,6 @@ import com.n247s.N2ConfigApi.api.core.InitConfigObjectManager.Config;
 
 import io.netty.buffer.ByteBufInputStream;
 import io.netty.buffer.ByteBufOutputStream;
-import scala.actors.threadpool.Arrays;
 
 /**
  * @author N247S An ingame ConfigFile Manager
@@ -48,7 +48,7 @@ public class ConfigSection implements Serializable {
 
     /**
      * This will create a new ConfigSection. Note, this won't be saved automatically!
-     * 
+     *
      * @param sectionName   - This will be displayed before the Value inside the ConfigurationFile. This will also
      *                      function as ID!
      * @param description   - This will be displayed above the section Input. Each String represents a new Line.
@@ -71,7 +71,7 @@ public class ConfigSection implements Serializable {
 
     /**
      * This will create a new ConfigSection. Note, this won't be saved automatically!
-     * 
+     *
      * @param sectionName  - This will be displayed before the Value inside the ConfigurationFile. This will also
      *                     function as ID!
      * @param description  - This will be displayed above the section Input. Each String represents a new Line.
@@ -87,7 +87,7 @@ public class ConfigSection implements Serializable {
 
     /**
      * This will create a new ConfigSection. Note, this won't be saved automatically!
-     * 
+     *
      * @param sectionName  - This will be displayed before the Value inside the ConfigurationFile. This will also
      *                     function as ID!
      * @param description  - This will be displayed above the section Input. Each String represents a new Line.
@@ -100,7 +100,7 @@ public class ConfigSection implements Serializable {
 
     /**
      * This will create a new ConfigSection. Note, this won't be saved automatically!
-     * 
+     *
      * @param sectionName - This will be displayed before the Value inside the ConfigurationFile. This will also
      *                    function as ID!
      * @param description - This will be displayed above the section Input. Each String represents a new Line.
@@ -154,7 +154,7 @@ public class ConfigSection implements Serializable {
     /**
      * this will set a custom SectionStarter, this can be done for each individual section! Symbols that might cause a
      * conflict: '{ } ; ,'
-     * 
+     *
      * @param sectionStarter
      */
     public final ConfigSection setCustomSectionStarter(String sectionStarter) {
@@ -165,7 +165,7 @@ public class ConfigSection implements Serializable {
     /**
      * this will set a custom SectionHeadEnder, this can be done for each individual section! Symbols that might cause a
      * conflict: '{ } ; ,'
-     * 
+     *
      * @param sectionHeadEnder
      */
     public final ConfigSection setCustomSectionHeadEnder(String sectionHeadEnder) {
@@ -177,7 +177,7 @@ public class ConfigSection implements Serializable {
     /**
      * this will set a custom SectionStarter, this can be done for each individual section! Symbols that might cause a
      * conflict: '{ } ; ,'
-     * 
+     *
      * @param sectionEnder
      */
     public final ConfigSection setCustomSectionEnder(String sectionEnder) {

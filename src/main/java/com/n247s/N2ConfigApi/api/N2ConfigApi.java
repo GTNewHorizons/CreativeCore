@@ -41,7 +41,7 @@ public final class N2ConfigApi {
 
     /**
      * This will register a Directory where you can store your (Config)Files.
-     * 
+     *
      * @param directoryPath - This is the path inside the Minecraft default ConfigDirectory. (Illegal DirectoryNames:
      *                      '&#042&#042/temp')
      * @param directoryID   - With this ID you can retrieve the Instance of the Directory.
@@ -70,7 +70,7 @@ public final class N2ConfigApi {
 
     /**
      * This will register a Directory where you can store your (Configuration)Files.
-     * 
+     *
      * @param ParentDirectory - Where this Directory will be created. Note, the parentDirectory MUST exist for the auto
      *                        generate funcions to work! If you want to create multiple 'nested' Directory's, add them
      *                        to the directoryPath. ("folder1/folder2/finalfolder")
@@ -184,7 +184,7 @@ public final class N2ConfigApi {
 
     /**
      * Retrieve the 'temp' Directory which is registered with the Directory
-     * 
+     *
      * @param directory
      * @return - File(Directory)
      */

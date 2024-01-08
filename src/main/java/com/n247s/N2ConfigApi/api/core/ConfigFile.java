@@ -48,7 +48,7 @@ public abstract class ConfigFile extends ConfigSectionCollection implements Clon
 
     /**
      * This will automatically register a new ConfigFile.
-     * 
+     *
      * @param fileName  - the name which the configFile will get (fileName.cfg)
      * @param proxySide - The ProxySide of this ConfigFile. Note, This can't be changed after Construction!
      */
@@ -82,7 +82,7 @@ public abstract class ConfigFile extends ConfigSectionCollection implements Clon
 
     /**
      * This will write the section. Note, it will be written behind the existing text inside the File!
-     * 
+     *
      * @param sectionName
      */
     public final void writeSection(String sectionName) {
@@ -99,7 +99,7 @@ public abstract class ConfigFile extends ConfigSectionCollection implements Clon
     /**
      * This method will regenerate a configFile. Note, it will regenerate only invalidSections! If something goes wrong
      * during the regeneration, it will backup the file, and regenerate the whole File!
-     * 
+     *
      * @param invalidSectionNames - List of IDNames of all the invalid Sections.
      */
     public final void regenerateConfigFile(List<String> invalidSectionNames) {
@@ -153,7 +153,7 @@ public abstract class ConfigFile extends ConfigSectionCollection implements Clon
      * will return an List of String representing all the sections which are considered invalid, otherwise it will
      * return null. (an section is considered invalid when it doesn't contain its sectionName) Note, SectionTypes Text
      * and SectionHead will not be checked since they don't contain value's!
-     * 
+     *
      * @return List(section names) || null - see description.
      */
     public final List checkConfigFile() {
@@ -207,7 +207,7 @@ public abstract class ConfigFile extends ConfigSectionCollection implements Clon
 
     /**
      * This will go through every ConfigSection, and see if the DefaultValue has Changed.
-     * 
+     *
      * @return - A list of all Changed ConfigSections, or null if there aren't any.
      */
     public final List<String> getChangedSections() {
@@ -268,7 +268,7 @@ public abstract class ConfigFile extends ConfigSectionCollection implements Clon
     /**
      * Use only if you really know what you are doing! If you want to Clone a configFile, use
      * {@link ConfigHandler#generateSingleFileFromConfigFile()} instead with {@link FileType#Clone} as second parameter.
-     * 
+     *
      * @return - new Instance of this ConfigFile.
      * @throws CloneNotSupportedException
      */

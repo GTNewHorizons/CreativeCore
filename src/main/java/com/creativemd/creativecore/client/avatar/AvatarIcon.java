@@ -10,7 +10,7 @@ import com.creativemd.creativecore.client.rendering.RenderHelper2D;
 
 /**
  * How to register a custom icon:
- * 
+ *
  * @SideOnly(Side.CLIENT) @SubscribeEvent public void onStitch(TextureStitchEvent.Pre event) {
  *                        if(event.map.getTextureType() == 0) { yourIcon = event.map.registerIcon(YourMod.MODID +
  *                        ":yourIconName"); } }

@@ -38,7 +38,7 @@ public class EventBus {
 
     /**
      * used to bind a custom CallHandler to a EventType.
-     * 
+     *
      * @param eventType
      * @param callHandler
      */
@@ -50,7 +50,7 @@ public class EventBus {
     /**
      * With this method you can add an EventListner(Class object/Class instance) which CustomEventSubscribed methods
      * should be Called on eventRaise.
-     * 
+     *
      * @param listener a Class object or instance that contains CustomEventSubscribe methods.
      * @throws IllegalArgumentException - If a CustomEventSubscribed Method contains more than one parameter, or if the
      *                                  parameter of that method is not an instance of EventType.class.
@@ -89,7 +89,7 @@ public class EventBus {
 
     /**
      * With this method you can remove an EventListner(Class object/Class instance).
-     * 
+     *
      * @param Listener
      * @throws NullPointerException - if the EventListner isn't registered.
      */

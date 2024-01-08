@@ -77,11 +77,11 @@ public class ConfigApiEvents {
      * This {@link EventType} is raised before the configFiles from the server has been synchronized with the client.
      * This event is bound on the {@link EventApi#defaultEventBusInstance default EventBus}. you can register your class
      * as follows:
-     * 
+     *
      * <pre>
      * EventApi.defaultEventBusInstance.RegisterEventListner(listenerClass);
      * </pre>
-     * 
+     *
      * @see {@link EventBus#RegisterEventListener(Object)}
      */
     public class onPreServerJoinConfigRecieve extends ServerConfigEvent {
@@ -95,11 +95,11 @@ public class ConfigApiEvents {
      * This {@link EventType} is raised after the configFiles from the server has been synchronized with the client.
      * This event is bound on the {@link EventApi#defaultEventBusInstance default EventBus}. you can register your class
      * as follows:
-     * 
+     *
      * <pre>
      * EventApi.defaultEventBusInstance.RegisterEventListner(listenerClass);
      * </pre>
-     * 
+     *
      * @see {@link EventBus#RegisterEventListener(Object)}
      */
     public class onPostServerJoinConfigRecieve extends ServerConfigEvent {
@@ -113,11 +113,11 @@ public class ConfigApiEvents {
      * This {@link EventType} is raised before the configFiles have been cleaned up after the player leaves the server.
      * This event is bound on the {@link EventApi#defaultEventBusInstance default EventBus}. you can register your class
      * as follows:
-     * 
+     *
      * <pre>
      * EventApi.defaultEventBusInstance.RegisterEventListner(listenerClass);
      * </pre>
-     * 
+     *
      * @see {@link EventBus#RegisterEventListener(Object)}
      */
     public class onPreServerLeaveConfigRemove extends ServerConfigEvent {
@@ -131,11 +131,11 @@ public class ConfigApiEvents {
      * This {@link EventType} is raised after the configFiles have been cleaned up after the player leaves the server.
      * This event is bound on the {@link EventApi#defaultEventBusInstance default EventBus}. you can register your class
      * as follows:
-     * 
+     *
      * <pre>
      * EventApi.defaultEventBusInstance.RegisterEventListner(listenerClass);
      * </pre>
-     * 
+     *
      * @see {@link EventBus#RegisterEventListener(Object)}
      */
     public class onPostServerLeaveConfigRemove extends ServerConfigEvent {
@@ -148,11 +148,11 @@ public class ConfigApiEvents {
     /**
      * This {@link EventType} is raised before ConfigFile values are changed by an updatePacket. This event is bound on
      * the {@link EventApi#defaultEventBusInstance default EventBus}. you can register your class as follows:
-     * 
+     *
      * <pre>
      * EventApi.defaultEventBusInstance.RegisterEventListner(listenerClass);
      * </pre>
-     * 
+     *
      * @see {@link EventBus#RegisterEventListener(Object)}
      */
     public class OnPreConfigValuesChanged extends ConfigEvent {
@@ -165,11 +165,11 @@ public class ConfigApiEvents {
     /**
      * This {@link EventType} is raised after ConfigFile values are changed by an updatePacket. This event is bound on
      * the {@link EventApi#defaultEventBusInstance default EventBus}. you can register your class as follows:
-     * 
+     *
      * <pre>
      * EventApi.defaultEventBusInstance.RegisterEventListner(listenerClass);
      * </pre>
-     * 
+     *
      * @see {@link EventBus#RegisterEventListener(Object)}
      */
     public class OnPostConfigValuesChanged extends ConfigEvent {
@@ -182,11 +182,11 @@ public class ConfigApiEvents {
     /**
      * This {@link EventType} is raised before a new ConfigFile is added by an updatePacket.This event is bound on the
      * {@link EventApi#defaultEventBusInstance default EventBus}. you can register your class as follows:
-     * 
+     *
      * <pre>
      * EventApi.defaultEventBusInstance.RegisterEventListner(listenerClass);
      * </pre>
-     * 
+     *
      * @see {@link EventBus#RegisterEventListener(Object)}
      */
     public class OnPreConfigAdded extends ConfigEvent {
@@ -199,11 +199,11 @@ public class ConfigApiEvents {
     /**
      * This {@link EventType} is raised after a new ConfigFile is added by an updatePacket.This event is bound on the
      * {@link EventApi#defaultEventBusInstance default EventBus}. you can register your class as follows:
-     * 
+     *
      * <pre>
      * EventApi.defaultEventBusInstance.RegisterEventListner(listenerClass);
      * </pre>
-     * 
+     *
      * @see {@link EventBus#RegisterEventListener(Object)}
      */
     public class OnPostConfigAdded extends ConfigEvent {
@@ -216,11 +216,11 @@ public class ConfigApiEvents {
     /**
      * This {@link EventType} is raised before a ConfigFile is removed by an updatePacket. This event is bound on the
      * {@link EventApi#defaultEventBusInstance default EventBus}. you can register your class as follows:
-     * 
+     *
      * <pre>
      * EventApi.defaultEventBusInstance.RegisterEventListner(listenerClass);
      * </pre>
-     * 
+     *
      * @see {@link EventBus#RegisterEventListener(Object)}
      */
     public class OnPreConfigRemoved extends ConfigEvent {
@@ -233,11 +233,11 @@ public class ConfigApiEvents {
     /**
      * This {@link EventType} is raised after a ConfigFile is removed by an updatePacket. This event is bound on the
      * {@link EventApi#defaultEventBusInstance default EventBus}. you can register your class as follows:
-     * 
+     *
      * <pre>
      * EventApi.defaultEventBusInstance.RegisterEventListner(listenerClass);
      * </pre>
-     * 
+     *
      * @see {@link EventBus#RegisterEventListener(Object)}
      */
     public class OnPostConfigRemoved extends ConfigEvent {
