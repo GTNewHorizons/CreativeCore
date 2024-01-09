@@ -36,7 +36,7 @@ public class ConfigHandler {
     /**
      * This will register a ConfigurationFile. (.cfg) Note, make sure these configFiles have unique names, otherwise
      * configFiles may be merged, or in the worse case overwritten by each other!
-     * 
+     *
      * @param configFile
      * @param targetDirectory - This is the Directory where the ConfigFile will go.<br>
      *                        If you want it to go into the default configDir, use {@link N2ConfigApi#getConfigDir()}
@@ -123,7 +123,7 @@ public class ConfigHandler {
     /**
      * Sync the value's of a single ConfigFile if the file is a {@link ProxySide#Common} type ConfigFiles.<Br>
      * (Server Side only!)
-     * 
+     *
      * @param fileName
      */
     public static void syncConfigFile(String fileName) {
@@ -133,7 +133,7 @@ public class ConfigHandler {
     /**
      * Sync the value's of a single ConfigFile if the file is a {@link ProxySide#Common} type ConfigFiles.<br>
      * (Server Side only!)
-     * 
+     *
      * @param configFile
      */
     public static void syncConfigFile(final ConfigFile configFile) {
@@ -154,7 +154,7 @@ public class ConfigHandler {
     /**
      * Syncs the value's of all the {@link ProxySide#Common} type ConfigFiles inside the List.<Br>
      * (Server Side only!)
-     * 
+     *
      * @param configFiles
      */
     public static void SyncConfigFiles(List<ConfigFile> configFiles) {
@@ -179,7 +179,7 @@ public class ConfigHandler {
     /**
      * Forces a total sync. Don't use this method since it could break the game!<Br>
      * (Server Side only!)
-     * 
+     *
      * @param playerID
      */
     public static void forceCompleteSync(UUID playerID) {
@@ -192,7 +192,7 @@ public class ConfigHandler {
     /**
      * Send a request to update a full ConfigFile (may be denied if no permission is granted!)<Br>
      * (Client Side Only!)
-     * 
+     *
      * @param fileName
      */
     public static void requestFullConfigFileSync(String fileName) {
@@ -207,7 +207,7 @@ public class ConfigHandler {
     /**
      * Send a request to update ConfigFile Value's (may be denied if no permission is granted!)<Br>
      * (Client Side Only!)
-     * 
+     *
      * @param fileName
      */
     public static void requestConfigFileValueSync(String fileName) {
@@ -260,7 +260,7 @@ public class ConfigHandler {
      * This will create new, or check all existing files. Warning!, you really shouldn't call this if you don't know
      * what you are doing! (Inaccessible for now, since there isn't a way to store files per ModInstance, this would
      * only harm the performance when called.)
-     * 
+     *
      * @deprecated - This method could break too much mechanisms!
      */
     private static void loadAndCheckAllConfigFiles() {
@@ -286,7 +286,7 @@ public class ConfigHandler {
 
     /**
      * This will create or check the configFile.
-     * 
+     *
      * @param configFileName
      * @return - True if check was successful, false otherwise.<br>
      */
@@ -317,7 +317,7 @@ public class ConfigHandler {
 
     /**
      * This will create the configFile.
-     * 
+     *
      * @param configFileName
      */
     public static boolean loadConfigFile(String configFileName) {
@@ -344,7 +344,7 @@ public class ConfigHandler {
 
     /**
      * This will create or check all the configFiles in the StringArray.
-     * 
+     *
      * @param configFileNames
      */
     public static boolean loadAndCheckConfigFileList(String[] configFileNames) {
@@ -361,7 +361,7 @@ public class ConfigHandler {
 
     /**
      * This will create all the configFiles in the StringArray.
-     * 
+     *
      * @param configFileNames
      */
     public static boolean loadConfigFileList(String[] configFileNames) {
@@ -375,7 +375,7 @@ public class ConfigHandler {
     /**
      * This will create a single File. Note, if an File already exist, it will be overwritten! (except 'Clone'
      * FileTypes)
-     * 
+     *
      * @param originalFileName
      * @param fileType
      * @param originalFile
@@ -431,7 +431,7 @@ public class ConfigHandler {
 
     /**
      * This will create a new ConfigFile. Note, it will override existing files (except 'Clone' FileTypes).
-     * 
+     *
      * @param configFile
      * @param fileType
      * @param targetDirectory - This is the Directory where the ConfigurationFile will be created.
@@ -445,7 +445,7 @@ public class ConfigHandler {
 
     /**
      * This is mainly used for Clones with specific names.
-     * 
+     *
      * @param fileName        - this will only be used for {@link FileType#Clone}
      * @param configFile
      * @param fileType
@@ -500,7 +500,7 @@ public class ConfigHandler {
 
     /**
      * Don't, just don't!
-     * 
+     *
      * @deprecated - This method could break too much mechanisms!
      * @throws IOException
      */
@@ -551,7 +551,7 @@ public class ConfigHandler {
 
     /**
      * This will simply copy the content of one File, into the other.
-     * 
+     *
      * @param oldFile  - File which you want to copy from.
      * @param copyFile - File which it should copy to.
      */

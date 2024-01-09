@@ -216,7 +216,7 @@ public class EventApiCallHandler extends CallHandler {
     }
 
     /**
-     * 
+     *
      * @param whiteList
      */
     protected boolean CallInstancesWithWhiteList(EventType eventTypeInstance, List whiteList) {

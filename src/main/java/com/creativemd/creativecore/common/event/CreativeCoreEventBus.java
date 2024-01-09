@@ -63,7 +63,7 @@ public class CreativeCoreEventBus extends EventBus {
 
     /**
      * used to bind a custom CallHandler to a EventType.
-     * 
+     *
      * @param eventType
      * @param callHandler
      */
